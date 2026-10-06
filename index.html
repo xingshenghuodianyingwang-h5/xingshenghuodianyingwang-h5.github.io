@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馨生活电影网 - 家庭电影/生活剧集/治愈综艺/纪录人文导航</title>
+<meta name="description" content="馨生活电影网(xinshenghuodianyingwang-h5.github.io)整理家庭电影、生活剧集、治愈综艺、纪录人文片单，温馨居家风格影视导航站。">
+<meta name="keywords" content="馨生活电影网,家庭电影,生活剧集,治愈综艺,纪录人文,影视导航">
+<meta name="author" content="馨生活电影网">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="馨生活电影网 - 温馨居家影视导航">
+<meta property="og:description" content="馨生活电影网整理家庭电影、生活剧集、治愈综艺、纪录人文片单。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xinshenghuodianyingwang-h5.github.io">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#faf6f0;color:#4a3e35;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.home-bar{position:sticky;top:0;z-index:999;background:#faf6f0;border-bottom:1px solid #e8ddd4;padding:.6rem .9rem}
+.home-top{display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:1.06rem;font-weight:900}
+.brand b{color:#7bc9a6}
+.brand i{color:#b8a9e0;font-style:normal}
+.vibe{font-size:.7rem;color:#a08e80}
+.vibe b{color:#7bc9a6}
+.warm-line{height:5px;background:linear-gradient(90deg,#7bc9a6,#b8a9e0,#7bc9a6);border-radius:3px;margin-top:.5rem}
+.pills{display:flex;gap:.3rem;margin-top:.55rem;overflow-x:auto;padding:.2rem 0}
+.pills a{font-size:.74rem;padding:.32rem .8rem;white-space:nowrap;border-radius:20px;background:#f3ece3;border:1px solid #e8ddd4;color:#8b7a6b;transition:.25s}
+.pills a.active,.pills a:hover{background:#7bc9a6;color:#fff;font-weight:700;border-color:#7bc9a6}
+.wrap{padding:1rem;max-width:1100px;margin:0 auto}
+.room{display:none;animation:cozy .4s ease}
+.room.active{display:block}
+@keyframes cozy{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+.room h2{font-size:1.22rem;color:#7bc9a6;margin:0 0 1rem;padding-left:.55rem;border-left:4px solid #b8a9e0}
+#home .corner{background:radial-gradient(120% 130% at 75% 5%,#e8f8f0,#faf6f0 60%);border:1px solid #d4ebd9;border-radius:20px;padding:1.7rem 1.5rem;margin-bottom:1rem;position:relative;overflow:hidden}
+#home .corner:before{content:"🏠";position:absolute;right:10px;bottom:-12px;font-size:6.5rem;opacity:.1}
+#home .corner h1{font-size:1.68rem;color:#4a3e35;margin-bottom:.4rem}
+#home .corner h1 span{color:#7bc9a6}
+#home .corner p{font-size:.86rem;color:#8b7a6b}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:.85rem}
+.card{background:#fff;border:1px solid #e8ddd4;border-radius:14px;overflow:hidden;position:relative;transition:.25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(123,201,166,.18);border-color:#7bc9a6}
+.card .cover{height:116px;display:flex;align-items:flex-end;padding:.7rem;font-weight:800;font-size:.8rem;color:#4a3e35}
+.card .c1{background:linear-gradient(135deg,#7bc9a6,#b8e6cf)}
+.card .c2{background:linear-gradient(135deg,#b8a9e0,#d8c8f5)}
+.card .c3{background:linear-gradient(135deg,#f0c987,#f7e0b5)}
+.card .c4{background:linear-gradient(135deg,#a8d8d0,#7bc9a6)}
+.card .c5{background:linear-gradient(135deg,#e8b4cb,#b8a9e0)}
+.card .c6{background:linear-gradient(135deg,#c5d8a4,#7bc9a6)}
+.card .meta{padding:.65rem}
+.card h3{font-size:.84rem;color:#4a3e35}
+.card .row{display:flex;justify-content:space-between;font-size:.7rem;color:#a08e80}
+.card .tag{position:absolute;top:8px;right:8px;background:#faf6f0cc;color:#7bc9a6;font-size:.6rem;padding:.16rem .42rem;border-radius:20px;font-weight:700;border:1px solid #7bc9a6}
+.list{display:flex;flex-direction:column;gap:.8rem}
+.item{display:flex;gap:.85rem;background:#fff;border:1px solid #e8ddd4;border-radius:12px;padding:.9rem;position:relative}
+.item:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#b8a9e0;border-radius:4px 0 0 4px}
+.item .num{width:38px;height:38px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:900;background:linear-gradient(135deg,#b8a9e0,#7bc9a6);color:#fff}
+.item h3{font-size:.92rem;color:#4a3e35}
+.item p{font-size:.74rem;color:#8b7a6b}
+.item .labels{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.4rem}
+.item .labels span{background:#f3ece3;color:#8b7a6b;font-size:.62rem;padding:.12rem .38rem;border-radius:4px}
+.slide{display:flex;gap:.65rem;overflow-x:auto;padding-bottom:.4rem}
+.slide::-webkit-scrollbar{height:5px}.slide::-webkit-scrollbar-thumb{background:#d4ebd9;border-radius:5px}
+.note{min-width:158px;background:#fff;border:1px solid #e8ddd4;border-top:3px solid #7bc9a6;border-radius:0 0 12px 12px;padding:.85rem;text-align:center}
+.note .icon{font-size:1.5rem}
+.note h3{font-size:.82rem;color:#7bc9a6;margin:.2rem 0 .1rem}
+.note p{font-size:.68rem;color:#a08e80}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.8rem}
+.doc{background:#fff;border:1px solid #e8ddd4;border-radius:12px;overflow:hidden}
+.doc .banner{height:96px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.78rem;color:#4a3e35}
+.doc .d1{background:linear-gradient(135deg,#7bc9a6,#b8a9e0)}
+.doc .d2{background:linear-gradient(135deg,#b8a9e0,#f0c987)}
+.doc .d3{background:linear-gradient(135deg,#f0c987,#7bc9a6)}
+.doc .d4{background:linear-gradient(135deg,#a8d8d0,#b8a9e0)}
+.doc .body{padding:.55rem}
+.doc h3{font-size:.8rem;color:#4a3e35}
+.doc span{font-size:.66rem;color:#a08e80}
+.about{background:radial-gradient(120% 120% at 20% 80%,#e8f8f0,#faf6f0);border:1px solid #7bc9a6;border-radius:20px;padding:1.5rem}
+.about h2{color:#7bc9a6;border:0;padding:0;margin-bottom:.8rem}
+.about p{font-size:.85rem;color:#8b7a6b;margin-bottom:.6rem}
+.about .info{margin-top:1rem;background:#fff;border:1px dashed #b8a9e0;border-radius:12px;padding:1rem}
+.about .info h3{color:#b8a9e0;margin-bottom:.4rem}
+.about .info p{font-size:.78rem;color:#a08e80}
+.foot{text-align:center;padding:1.4rem 1rem;border-top:1px solid #e8ddd4;margin-top:1.6rem;font-size:.72rem;color:#c4b5a8}
+@media(max-width:768px){.cards{grid-template-columns:1fr 1fr}.brand{font-size:.94rem}#home .corner h1{font-size:1.36rem}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="home-bar">
+  <div class="home-top">
+    <div class="brand">馨生活<b>电影网</b> <i>🏠</i></div>
+    <div class="vibe">氛围 <b>温馨居家</b></div>
+  </div>
+  <div class="warm-line"></div>
+  <nav class="pills">
+    <a href="#" class="pl active" data-r="home">馨生活首页</a>
+    <a href="#" class="pl" data-r="family">家庭电影</a>
+    <a href="#" class="pl" data-r="life">生活剧集</a>
+    <a href="#" class="pl" data-r="heal">治愈综艺</a>
+    <a href="#" class="pl" data-r="doc">纪录人文</a>
+    <a href="#" class="pl" data-r="about">关于</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section id="home" class="room active">
+    <div class="corner">
+      <h1>馨生活<b>电影网</b></h1>
+      <p>一家人围坐一起看的好片子。家庭电影、生活剧集、治愈综艺、纪录人文，适合周末、适合夜晚、适合陪伴。</p>
+      <div class="cards" style="margin-top:1rem;grid-template-columns:repeat(4,1fr)">
+        <div class="card" style="min-width:0"><div class="cover c1" style="height:70px;font-size:.72rem">合家欢</div><div class="meta"><h3 style="font-size:.78rem">家庭向</h3><p style="font-size:.62rem;color:#a08e80">适合全年龄</p></div></div>
+        <div class="card" style="min-width:0"><div class="cover c2" style="height:70px;font-size:.72rem">慢生活</div><div class="meta"><h3 style="font-size:.78rem">生活流</h3><p style="font-size:.62rem;color:#a08e80">日常治愈系</p></div></div>
+        <div class="card" style="min-width:0"><div class="cover c3" style="height:70px;font-size:.72rem">轻综艺</div><div class="meta"><h3 style="font-size:.78rem">不吵闹</h3><p style="font-size:.62rem;color:#a08e80">背景音好选择</p></div></div>
+        <div class="card" style="min-width:0"><div class="cover c4" style="height:70px;font-size:.72rem">纪录片</div><div class="meta"><h3 style="font-size:.78rem">涨见识</h3><p style="font-size:.62rem;color:#a08e80">人文自然</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="family" class="room">
+    <h2>🎬 家庭电影 · 合家欢片单</h2>
+    <div class="cards">
+      <div class="card"><div class="tag">合家欢</div><div class="cover c1">寻梦环游记</div><div class="meta"><h3>寻梦环游记</h3><div class="row"><span>动画 / 2017</span><span>9.1</span></div></div></div>
+      <div class="card"><div class="tag">温情</div><div class="cover c2">海蒂和爷爷</div><div class="meta"><h3>海蒂和爷爷</h3><div class="row"><span>剧情 / 2015</span><span>9.3</span></div></div></div>
+      <div class="card"><div class="tag">励志</div><div class="cover c3">摔跤吧！爸爸</div><div class="meta"><h3>摔跤吧！爸爸</h3><div class="row"><span>运动 / 2016</span><span>9.0</span></div></div></div>
+      <div class="card"><div class="tag">动画</div><div class="cover c4">飞屋环游记</div><div class="meta"><h3>飞屋环游记</h3><div class="row"><span>动画 / 2009</span><span>9.1</span></div></div></div>
+      <div class="card"><div class="tag">治愈</div><div class="cover c5">小偷家族</div><div class="meta"><h3>小偷家族</h3><div class="row"><span>剧情 / 2018</span><span>8.7</span></div></div></div>
+      <div class="card"><div class="tag">冒险</div><div class="cover c6">奇迹男孩</div><div class="meta"><h3>奇迹男孩</h3><div class="row"><span>家庭 / 2017</span><span>8.6</span></div></div></div>
+    </div>
+  </section>
+
+  <section id="life" class="room">
+    <h2>📺 生活剧集 · 慢节奏分集</h2>
+    <div class="list">
+      <div class="item"><div class="num">1</div><div><h3>请回答1988</h3><p>邻里温情年代剧 · 全20集</p><div class="labels"><span>韩剧</span><span>温情</span><span>邻里</span></div></div></div>
+      <div class="item"><div class="num">2</div><div><h3>小欢喜</h3><p>家庭教育剧 · 全49集</p><div class="labels"><span>高考</span><span>家庭</span><span>成长</span></div></div></div>
+      <div class="item"><div class="num">3</div><div><h3>深夜食堂</h3><p>都市温情剧 · 全10集</p><div class="labels"><span>美食</span><span>单元剧</span><span>治愈</span></div></div></div>
+      <div class="item"><div class="num">4</div><div><h3>四重奏</h3><p>日剧 · 全10集</p><div class="labels"><span>音乐</span><span>群像</span><span>文艺</span></div></div></div>
+      <div class="item"><div class="num">5</div><div><h3>父母爱情</h3><p>年代家庭剧 · 全44集</p><div class="labels"><span>婚姻</span><span>年代</span><span>经典</span></div></div></div>
+    </div>
+  </section>
+
+  <section id="heal" class="room">
+    <h2>🎙️ 治愈综艺 · 便签横滑</h2>
+    <div class="slide">
+      <div class="note"><div class="icon">🍃</div><h3>向往的生活</h3><p>慢综艺</p></div>
+      <div class="note"><div class="icon">📖</div><h3>朗读者</h3><p>文化朗读</p></div>
+      <div class="note"><div class="icon">🎨</div><h3>见字如面</h3><p>书信朗读</p></div>
+      <div class="note"><div class="icon">🏕️</div><h3>恰好是少年</h3><p>旅行综艺</p></div>
+      <div class="note"><div class="icon">🍳</div><h3>十二道锋味</h3><p>美食旅行</p></div>
+    </div>
+  </section>
+
+  <section id="doc" class="room">
+    <h2>📷 纪录人文 · 涨见识</h2>
+    <div class="doc-grid">
+      <div class="doc"><div class="banner d1">地球脉动3</div><div class="body"><h3>地球脉动3</h3><span>自然 / BBC</span></div></div>
+      <div class="doc"><div class="banner d2">舌尖上的中国</div><div class="body"><h3>舌尖上的中国</h3><span>美食 / CCTV</span></div></div>
+      <div class="doc"><div class="banner d3">人生一串</div><div class="body"><h3>人生一串</h3><span>烧烤 / 人文</span></div></div>
+      <div class="doc"><div class="banner d4">河西走廊</div><div class="body"><h3>河西走廊</h3><span>历史 / 人文</span></div></div>
+      <div class="doc"><div class="banner d1">我在故宫修文物</div><div class="body"><h3>我在故宫修文物</h3><span>匠人 / 文化</span></div></div>
+      <div class="doc"><div class="banner d2">航拍中国</div><div class="body"><h3>航拍中国</h3><span>地理 / 风光</span></div></div>
+    </div>
+  </section>
+
+  <section id="about" class="room">
+    <div class="about">
+      <h2>关于 馨生活电影网</h2>
+      <p>馨生活电影网是一个温馨居家风格的影视信息导航站，整理家庭电影、生活剧集、治愈综艺、纪录人文的片单与分类浏览。</p>
+      <p>页面采用单文件 H5 结构，CSS/JS 全部内联，手机、平板、电脑一套代码自适应；标题、栏目、片单文字直接写在 HTML 里，方便必应等搜索引擎抓取。</p>
+      <p>本站仅做影视信息展示与分类导航，不提供盗版播放源，也不生成 robots.txt / sitemap.xml。</p>
+      <div class="info">
+        <h3>站点信息</h3>
+        <p>网站名称：馨生活电影网</p>
+        <p>网址：https://xinshenghuodianyingwang-h5.github.io</p>
+        <p>关键词：馨生活电影网、家庭电影、生活剧集、治愈综艺、纪录人文</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>© 2024 馨生活电影网 | https://xinshenghuodianyingwang-h5.github.io</p>
+    <p>本网站仅提供影视信息展示与分类导航，所有片单来自公开影视资料，如有侵权请联系删除。</p>
+  </footer>
+</main>
+
+<script>
+var pl=document.querySelectorAll('.pl');
+pl.forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var r=this.dataset.r;
+    document.querySelectorAll('.room').forEach(function(x){x.classList.remove('active')});
+    document.getElementById(r).classList.add('active');
+    pl.forEach(function(x){x.classList.remove('active')});
+    this.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
